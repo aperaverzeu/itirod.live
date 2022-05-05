@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  mongodb:
+    container_name: db
+    image: mongo:latest
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - backend
+
+  api:
+    container_name: back
+    image: skarback:3.3.3
+    environment:
+      - "SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017/skrzkrk"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    networks:
+      - backend
+
+volumes:
+  mongodata:
+
+networks:
+  backend:
