@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-import javax.validation.Valid;
-
 @RestController
 @RequestMapping(value = "/api/v1/register")
 @RequiredArgsConstructor
@@ -21,7 +19,7 @@ public class RegisterController {
     private final UserMapper userMapper;
 
     @PostMapping("")
-    public Mono<User> register(@Valid @RequestBody UserDTO user) {
+    public Mono<User> register(@RequestBody UserDTO user) {
         return userService.register(userMapper.apply(user));
     }
 }
