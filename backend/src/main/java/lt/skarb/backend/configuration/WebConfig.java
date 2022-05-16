@@ -12,7 +12,6 @@ import java.util.List;
 @Configuration
 @Slf4j
 class WebConfig {
-
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         var corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
