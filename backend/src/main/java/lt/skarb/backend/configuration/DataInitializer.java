@@ -27,8 +27,10 @@ public class DataInitializer {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    private static final String BIOGRAPHY = "Біяграфіі";
-    private static final String HISTORY = "Гісторыя";
+    private static final String BIOGRAPHY = "Biography";
+    private static final String BIOGRAPHY_COLOR = "yellow";
+    private static final String HISTORY = "History";
+    private static final String HISTORY_COLOR = "red";
 
     @EventListener(value = ApplicationReadyEvent.class)
     public void init() {
@@ -46,18 +48,21 @@ public class DataInitializer {
         var magda = Post.builder()
                 .title("Magda")
                 .courseId(BIOGRAPHY)
+                .courseColor(BIOGRAPHY_COLOR)
                 .content("content of Magda")
                 .build();
 
         var vit = Post.builder()
                 .title("Vit")
                 .courseId(BIOGRAPHY)
+                .courseColor(BIOGRAPHY_COLOR)
                 .content("content of Vit")
                 .build();
 
         var vorsa = Post.builder()
                 .title("Vorša")
                 .courseId(HISTORY)
+                .courseColor(HISTORY_COLOR)
                 .content("content of Vorša")
                 .build();
 
@@ -80,11 +85,13 @@ public class DataInitializer {
 
         var bio = Course.builder()
                 .title(BIOGRAPHY)
+                .color(BIOGRAPHY_COLOR)
                 .posts(posts.getOrDefault(BIOGRAPHY, List.of()))
                 .build();
 
         var hi = Course.builder()
                 .title(HISTORY)
+                .color(HISTORY_COLOR)
                 .posts(posts.getOrDefault(HISTORY, List.of()))
                 .build();
 

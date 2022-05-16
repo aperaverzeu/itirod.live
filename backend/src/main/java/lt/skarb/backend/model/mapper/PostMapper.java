@@ -13,6 +13,7 @@ public class PostMapper implements Function<PostDTO, Post> {
         return Post.builder()
                 .id(postDTO.id())
                 .courseId(postDTO.courseId())
+                .courseColor(postDTO.courseColor())
                 .title(postDTO.title())
                 .content(postDTO.content())
                 .build();

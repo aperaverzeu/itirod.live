@@ -1,3 +1,3 @@
 package lt.skarb.backend.model.dto;
 
-public record PostDTO(String id, String courseId, String title, String content) {}
+public record PostDTO(String id, String courseId, String courseColor, String title, String content) {}

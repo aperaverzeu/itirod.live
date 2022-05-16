@@ -21,4 +21,6 @@ public class Course {
     private String title;
 
     private List<Post> posts;
+
+    private String color;
 }

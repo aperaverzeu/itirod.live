@@ -20,6 +20,8 @@ public class Post {
 
     private String courseId;
 
+    private String courseColor;
+
     @NotBlank
     private String title;
 
