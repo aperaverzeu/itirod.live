@@ -1,0 +1,72 @@
+main {
+    max-height: 90vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 3vh;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    border-radius: 1rem;
+}
+
+.card {
+    width: 70vw;
+    min-height: 60vh;
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    text-align: left;
+    font-size: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 16px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+#card1 > div {
+    background: linear-gradient(45deg, #ffb80360 60%, #ffd26060 40%);
+}
+
+#card2 > div {
+    background: linear-gradient(45deg, #fb850060 60%, #ffba6b60 40%);
+}
+
+#card3 > div {
+    background: linear-gradient(45deg, #219ebc60 60%, #75cde360 40%);
+}
+
+#card4 > div {
+    background: linear-gradient(45deg, #1d7fac60 60%, #8ecae660 40%);
+}
+
+#card1 > h1 {
+    border: 3px solid #ffb80360;
+}
+
+#card2 > h1 {
+    border: 3px solid #fb850060;
+}
+
+#card3 > h1 {
+    border: 3px solid #219ebc60;
+}
+
+#card4 > h1 {
+    border: 3px solid #1d7fac60;
+}

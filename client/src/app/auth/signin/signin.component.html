@@ -1,0 +1,17 @@
+<main>
+  <h1>Sign in!</h1>
+  <form [formGroup]="form">
+    <input type="text" [formControlName]="'username'" placeholder="username" id="username"/>
+    <div *ngIf="form.get('username')?.dirty && form.get('username')?.hasError('required')">
+      Username field is a required field
+    </div>
+    <input type="password" [formControlName]="'password'" placeholder="password" id="password"/>
+    <div *ngIf="form.get('password')?.dirty && form.get('password')?.hasError('required')">
+      Password field is a required field
+    </div>
+    <div class="buttons">
+      <button [disabled]="!form.valid" (click)="login()" >log me in</button>
+      <button (click)="register()">to register</button>
+    </div>
+  </form>
+</main>

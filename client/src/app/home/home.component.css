@@ -1,0 +1,45 @@
+.home {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+#hello {
+    font-size: 4rem;
+}
+.posts {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+    justify-content: center;
+}
+.post {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 10vh;
+}
+.post h4 {
+    font-size: 1.7rem;
+}
+.post p {
+    max-width: 30vw;
+    text-align: left;
+}
+footer {
+    min-height: 35vh;
+    background: linear-gradient(135deg, #fb8500 60%, #ffb703 40%);
+}
+a {
+    color: black; 
+}
+.footer-nav {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}

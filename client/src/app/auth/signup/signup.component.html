@@ -1,0 +1,21 @@
+<main>
+  <h1>Sign up!</h1>
+  <form [formGroup]="form">
+    <input type="text" [formControlName]="'username'" placeholder="username" id="username"/>
+    <div *ngIf="form.get('username')?.dirty && form.get('username')?.hasError('required')">
+      Username field is a required field
+    </div>
+    <input type="email" [formControlName]="'email'" placeholder="email" id="email"/>
+    <div *ngIf="form.get('email')?.dirty && form.get('email')?.hasError('required')">
+      Email field is a required field
+    </div>
+    <input type="password" [formControlName]="'password'" placeholder="password" id="password"/>
+    <div *ngIf="form.get('password')?.dirty && form.get('password')?.hasError('required')">
+      Password field is a required field
+    </div>
+    <div class="buttons">
+      <button [disabled]="!form.valid" (click)="register()">register</button>
+      <button (click)="login()">to login</button>
+    </div>
+  </form>
+</main>

@@ -1,0 +1,11 @@
+<main>
+    <h1>Knowlage</h1>
+    <div class="cards">
+        <div class="card" 
+             id={{this.getCssClass(i)}} 
+             *ngFor="let course of courses; let i=index;"
+             (click)="selectCourse(course, i)">
+            {{course.title}}
+        </div>
+    </div>
+</main>

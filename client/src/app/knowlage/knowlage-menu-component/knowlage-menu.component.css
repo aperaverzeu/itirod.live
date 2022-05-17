@@ -1,0 +1,53 @@
+main {
+    max-height: 90vh;
+    margin-left: 7vw;
+    margin-right: 5vw;
+    margin-top: 5vh;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+h1 {
+    font-size: 2.3rem;
+}
+
+.card {
+    width: 30vw;
+    height: 30vh;
+    background-color: #bdeaff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 16px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+#card1 {
+    background: linear-gradient(45deg, #ffb703 60%, #ffd260 40%);
+}
+
+#card2 {
+    background: linear-gradient(45deg, #fb8500 60%, #ffba6b 40%);
+}
+
+#card3 {
+    background: linear-gradient(45deg, #219ebc 60%, #75cde3 40%);
+}
+
+#card4 {
+    background: linear-gradient(45deg, #1d7fac 60%, #8ecae6 40%);
+}

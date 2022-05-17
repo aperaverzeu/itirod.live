@@ -1,0 +1,35 @@
+main {
+    max-height: 90vh;
+    margin-left: 7vw;
+    margin-right: 5vw;
+    margin-top: 5vh;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+h1 {
+    font-size: 2.3rem;
+}
+
+.card {
+    width: 65vw;
+    height: 60vh;
+    background-color: #ffb703;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.30) 0px 5px 20px;
+}
+
+h2 {
+    font-size: 2.2rem;
+}

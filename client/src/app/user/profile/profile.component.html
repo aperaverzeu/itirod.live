@@ -1,0 +1,19 @@
+<main>
+  <div id="chart">
+    <h1>Knowlage score</h1>
+    <apx-chart
+      [series]="chartOptions.series"
+      [chart]="chartOptions.chart"
+      [labels]="chartOptions.labels"
+      [responsive]="chartOptions.responsive"
+      [colors]="chartOptions.colors"
+    ></apx-chart>
+  </div>
+  <div class="person">
+    <div id="avatar">
+      <img src="../../../assets/avatar.png" alt="avatar">
+    </div>
+    <h1 id="name">{{ user.name || user.username }}</h1>
+    <button (click)="logout()">Logout</button>
+  </div>
+</main>
