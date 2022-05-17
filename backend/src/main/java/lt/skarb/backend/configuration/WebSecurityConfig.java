@@ -47,7 +47,7 @@ public class WebSecurityConfig {
                 .authorizeExchange()
                 .pathMatchers(HttpMethod.OPTIONS).permitAll()
                 .pathMatchers("/api/v1/auth/*").permitAll()
-                .pathMatchers("/api/v1/*").permitAll()
+                .pathMatchers("/actuator").permitAll()
                 // todo add wonder endpoint
                 .anyExchange().authenticated()
                 .and()
@@ -64,18 +64,12 @@ public class WebSecurityConfig {
                         .findByUsername(usr)
                         .map(u -> User.withUsername(u.getUsername())
                                 .password(u.getPassword())
-                                .authorities(getRolesToString(u.getRoles()))
+                                .authorities(u.getAuthorities())
                                 .build())
                         .doOnNext(result -> users.put(usr, result))
                         .log()
                         .subscribe());
 
         return new MapReactiveUserDetailsService(users);
-    }
-
-    private String[] getRolesToString(List<Role> roles) {
-        return roles.stream()
-                .map(Enum::toString)
-                .toArray(String[]::new);
     }
 }

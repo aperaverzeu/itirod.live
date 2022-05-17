@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Component
@@ -32,8 +31,7 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
                             null,
                             rolesMap.stream()
                                     .map(SimpleGrantedAuthority::new)
-                                    .collect(Collectors.toList())
-                    );
+                                    .toList());
                 });
     }
 }

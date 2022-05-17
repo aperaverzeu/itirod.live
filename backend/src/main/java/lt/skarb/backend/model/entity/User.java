@@ -15,10 +15,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Document
 @Data
@@ -49,7 +47,7 @@ public class User implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.roles.stream()
                 .map(authority -> new SimpleGrantedAuthority(authority.name()))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
