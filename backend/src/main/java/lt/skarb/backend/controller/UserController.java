@@ -17,6 +17,6 @@ public class UserController {
 
     @GetMapping("/{username}")
     public Mono<User> get(@PathVariable() String username) {
-        return userService.get(username);
+        return userService.findUserByUsername(username);
     }
 }

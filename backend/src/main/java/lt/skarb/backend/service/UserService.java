@@ -7,7 +7,7 @@ import reactor.core.publisher.Mono;
 
 @Service
 public record UserService(UserRepository userRepository) {
-    public Mono<User> get(String username) {
+    public Mono<User> findUserByUsername(String username) {
         return this.userRepository.findByUsername(username);
     }
 

@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lt.skarb.backend.model.entity.Course;
 import lt.skarb.backend.model.entity.Post;
+import lt.skarb.backend.model.entity.Role;
 import lt.skarb.backend.model.entity.User;
 import lt.skarb.backend.repository.CourseRepository;
 import lt.skarb.backend.repository.PostRepository;
@@ -105,8 +106,8 @@ public class DataInitializer {
                 .thenMany(Flux.just("user", "admin")
                         .flatMap(username -> {
                             var roles = "admin".equals(username)
-                                    ? List.of("ROLE_USER", "ROLE_ADMIN")
-                                    : List.of("ROLE_USER");
+                                    ? List.of(Role.ROLE_USER, Role.ROLE_ADMIN)
+                                    : List.of(Role.ROLE_USER);
                             var user = User.builder()
                                     .roles(roles)
                                     .username(username)
