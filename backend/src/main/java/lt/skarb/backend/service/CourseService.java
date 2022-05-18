@@ -12,7 +12,9 @@ public record CourseService(CourseRepository courseRepository) {
         return courseRepository.findAll();
     }
 
-    public Mono<Course> getCourseByTitle(String title) {
-        return courseRepository.getCourseByTitle(title);
+    public Mono<String> getCourseColorByTitle(String title) {
+        return courseRepository.getCourseByTitle(title)
+                .map(Course::getColor)
+                .switchIfEmpty(Mono.empty());
     }
 }

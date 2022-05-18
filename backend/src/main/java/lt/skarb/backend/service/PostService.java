@@ -12,6 +12,10 @@ public record PostService(PostRepository postRepository) {
         return this.postRepository.findAll();
     }
 
+    public Flux<Post> allByTitle(String title) {
+        return this.postRepository.getPostsByCourseId(title);
+    }
+
     public Mono<Post> create(Post post) {
         return this.postRepository.save(post);
     }

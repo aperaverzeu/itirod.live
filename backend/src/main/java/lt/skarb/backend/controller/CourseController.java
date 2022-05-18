@@ -1,12 +1,10 @@
 package lt.skarb.backend.controller;
 
 import lombok.RequiredArgsConstructor;
+import lt.skarb.backend.model.dto.CourseNameDTO;
 import lt.skarb.backend.model.entity.Course;
 import lt.skarb.backend.service.CourseService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -21,8 +19,8 @@ public class CourseController {
         return courseService.getCourses();
     }
 
-    @GetMapping("/{title}")
-    public Mono<Course> getByTitle(@PathVariable String title) {
-        return courseService.getCourseByTitle(title);
+    @GetMapping("/color")
+    public Mono<String> getColorByTitle(@RequestBody CourseNameDTO dto) {
+        return courseService.getCourseColorByTitle(dto.courseName());
     }
 }
