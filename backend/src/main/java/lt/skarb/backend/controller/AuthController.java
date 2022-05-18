@@ -29,13 +29,13 @@ public class AuthController {
                         .encode(request.password())
                         .equals(userDetails.getPassword()))
                 .map(userDetails -> ResponseEntity
-                        .ok(new AuthResponse(jwtUtil.generateToken(userDetails))))
+                        .ok(new AuthResponse(jwtUtil.generateToken(userDetails), userDetails.getUsername())))
                 .switchIfEmpty(Mono.just(ResponseEntity
                         .status(HttpStatus.UNAUTHORIZED)
                         .build()));
     }
 
-    @PostMapping
+    @PostMapping("/register")
     public Mono<ResponseEntity<String>> register(@RequestBody UserDTO dto) {
         return userService.register(userMapper.apply(dto))
                 .map(user -> ResponseEntity
