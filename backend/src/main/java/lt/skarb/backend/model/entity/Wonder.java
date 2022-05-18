@@ -1,7 +1,6 @@
 package lt.skarb.backend.model.entity;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,11 +8,10 @@ import javax.validation.constraints.NotBlank;
 
 @Document
 @Data
-@SuperBuilder
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = true)
-public class Wonder extends Post {
+public class Wonder {
     @Id
     private String id;
 
