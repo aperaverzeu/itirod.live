@@ -1,14 +1,12 @@
-package lt.skarb.backend.configuration;
+package lt.skarb.backend.configuration.util;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lt.skarb.backend.model.entity.Course;
-import lt.skarb.backend.model.entity.Post;
-import lt.skarb.backend.model.entity.Role;
-import lt.skarb.backend.model.entity.User;
+import lt.skarb.backend.model.entity.*;
 import lt.skarb.backend.repository.CourseRepository;
 import lt.skarb.backend.repository.PostRepository;
 import lt.skarb.backend.repository.UserRepository;
+import lt.skarb.backend.repository.WonderRepository;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,6 +23,7 @@ import java.util.stream.Collectors;
 public class DataInitializer {
     private final PostRepository postRepository;
     private final CourseRepository courseRepository;
+    private final WonderRepository wonderRepository;
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -37,6 +36,7 @@ public class DataInitializer {
     public void init() {
         log.info("start data initialization  ...");
         initPosts();
+        initWonder();
         initCourses();
         initUsers();
     }
@@ -71,6 +71,22 @@ public class DataInitializer {
                 .log()
                 .subscribe();
 
+    }
+
+    private void initWonder() {
+        wonderRepository.deleteAll()
+                .log()
+                .subscribe();
+
+        var wonderPost = Wonder.builder()
+                .title("Nothing!")
+                .courseColor("white")
+                .content("nothing")
+                .build();
+
+        wonderRepository.saveAll(List.of(wonderPost))
+                .log()
+                .subscribe();
     }
 
     private void initCourses() {
