@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { Course } from 'src/app/shared/course.model';
+import { Post } from 'src/app/shared/post.model';
 import { PostService } from 'src/app/shared/post.service';
-import { Post } from '../../post.model';
 
 @Component({
   selector: 'app-course',
@@ -11,27 +11,20 @@ import { Post } from '../../post.model';
 })
 export class CourseComponent implements OnInit {
 
-  course: Course = <Course>{}
-  cssClass: string = ''
+  posts: Post[] = []
+  title: string = 'title'
 
-  constructor(private post: PostService, private router: Router) { 
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation?.extras.state as {
-      course: Course,
-      cssClass: string
-    };
-    this.course = state.course;
-    this.cssClass = state.cssClass;
+  constructor(private service: PostService, private router: Router) { 
+    const route = this.router.url.split('/');
+    this.title = route[route.length - 1];
+    this.service.getPostsByTitle(this.title)
+      .subscribe(data => {
+        this.posts = data;
+      })
   }
 
   selectPost(post: Post) {
-    const navigationExtras: NavigationExtras = {
-      state: {
-        post: post,
-        cssClass: this.cssClass
-      }
-    };
-    this.router.navigate([`knowlage/${this.course.title}/${post.title}`], navigationExtras);
+    this.router.navigate([`knowlage/${this.title}/${post.title}`]);
   }
 
   ngOnInit() {

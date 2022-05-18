@@ -10,10 +10,9 @@ import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 import {Credentials} from './credentials.model';
-import { UserStorage } from './user-storage';
+import { UsernameStorage } from './user-storage';
 
 const apiUrl = environment.baseApiUrl + '/auth';
-const registerUrl = environment.baseApiUrl + '/register';
 
 @Injectable({
   providedIn: 'root'
@@ -22,49 +21,43 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private jwt: TokenStorage,
-    private store: UserStorage,
+    private tokenStore: TokenStorage,
+    private usernameStore: UsernameStorage,
     private router: Router) {
   }
 
-  attempAuth(credentials: Credentials): Observable<any> {
-    debugger
-    const headers = new HttpHeaders()
-      .set('Authorization', 'Basic ' + btoa(credentials.username + ':' + credentials.password));
-    return this.http.get<User>(`${apiUrl}/user`, {headers})
+  login(credentials: Credentials): Observable<any> {
+    return this.http.post<any>(`${apiUrl}/login`, credentials)
       .pipe(
         tap(data => {
-          this.store.set(data)
+          this.tokenStore.set(data.token)
+          this.usernameStore.set(data.username)
         })
       );
   }
 
-  attempRegister(user: UserDTO): Observable<any> {
-    return this.http.post<User>(`${registerUrl}`, user)
-      .pipe(
-        tap(data => {
-          this.store.set(data)
-        })
-      );
+  register(user: UserDTO): Observable<any> {
+    return this.http.post(`${apiUrl}/register`, user, {responseType: 'text'});
   }
 
   signout() {
-    this.http.get<any>(`${apiUrl}/logout`).subscribe(
-      (data) => {
-        // reset the initial values
-        this.jwt.destroy();
-        this.store.destroy();
-      }
-    );
+    this.tokenStore.destroy();
+    this.usernameStore.destroy();
   }
 
   currentUser(): User {
-    return this.store.get();
+    return this.usernameStore.get();
   }
 
   isAuthenticated(): Observable<boolean> {
-    const res = Boolean(this.store.get())
+    const res = Boolean(this.tokenStore.get())
     return of(res)
+  }
+
+  getAuthHeaders(): HttpHeaders {
+    return new HttpHeaders()
+      .set('Content-Type', 'application/json')
+      .set('Authorization', `Bearer ${this.tokenStore.get()}`);
   }
 }
 

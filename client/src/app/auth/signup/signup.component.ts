@@ -24,10 +24,10 @@ export class SignupComponent {
   register() {  
     if (this.form.valid) {
       const user = <UserDTO>this.form.value;
-      this.auth.attempRegister(user)
+      this.auth.register(user)
       .subscribe(
         (data) => {
-          this.router.navigate(['']);
+          this.router.navigate(['/auth/signin']);
         }
       );
   } else {

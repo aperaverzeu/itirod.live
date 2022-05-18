@@ -1,10 +1,8 @@
-import { Username } from "./username.model";
-
 export interface Post {
   id?: string;
-  slug?: string;
+  courseId: string;
   title: string;
   content: string;
-  author?: Username;
+  courseColor: string;
   createdDate?: any;
 }

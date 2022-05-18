@@ -39,34 +39,34 @@ h1 {
     cursor: pointer;
 }
 
-#card1 > div {
+#yellow > div {
     background: linear-gradient(45deg, #ffb80360 60%, #ffd26060 40%);
 }
 
-#card2 > div {
+#red > div {
     background: linear-gradient(45deg, #fb850060 60%, #ffba6b60 40%);
 }
 
-#card3 > div {
+#blue > div {
     background: linear-gradient(45deg, #219ebc60 60%, #75cde360 40%);
 }
 
-#card4 > div {
+#dark > div {
     background: linear-gradient(45deg, #1d7fac60 60%, #8ecae660 40%);
 }
 
-#card1 > h1 {
+#yellow > h1 {
     border: 3px solid #ffb80360;
 }
 
-#card2 > h1 {
+#red > h1 {
     border: 3px solid #fb850060;
 }
 
-#card3 > h1 {
+#blue > h1 {
     border: 3px solid #219ebc60;
 }
 
-#card4 > h1 {
+#dark > h1 {
     border: 3px solid #1d7fac60;
 }

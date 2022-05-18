@@ -4,4 +4,5 @@ export interface Course {
   id?: string;
   title: string;
   posts: Post[];
+  color: string;
 }

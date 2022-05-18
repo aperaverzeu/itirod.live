@@ -12,7 +12,6 @@ export class LoadGuard implements CanLoad {
     
     this.authService.isAuthenticated().pipe(
       tap(auth => {
-        debugger
         if (!auth) {
           this.router.navigate(['', 'auth', 'signin']);
           return false;

@@ -4,7 +4,7 @@ import { AuthGuard } from '../core/auth-guard';
 import { WonderComponent } from './wonder-component/wonder.component';
 
 const routes: Routes = [
-  { path: '', component: WonderComponent }
+  { path: '', component: WonderComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

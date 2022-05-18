@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserStorage } from 'src/app/core/user-storage';
+import { UsernameStorage } from 'src/app/core/user-storage';
 import { User, UserDTO } from 'src/app/core/user.model';
 import { ChartComponent } from "ng-apexcharts";
 
@@ -9,6 +9,7 @@ import {
   ApexChart
 } from "ng-apexcharts";
 import { AuthService } from 'src/app/core/auth.service';
+import { Router } from '@angular/router';
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -25,11 +26,11 @@ export type ChartOptions = {
 })
 export class ProfileComponent implements OnInit {
 
-  user: any = {};
-  @ViewChild("chart") chart: ChartComponent = <ChartComponent>{};
-  public chartOptions: Partial<ChartOptions>;
+  username: string = '';
+  @ViewChild("chart") chart: any;
+  public chartOptions: any;
 
-  constructor(private store: UserStorage, private authService: AuthService) { 
+  constructor(private store: UsernameStorage, private authService: AuthService, private router: Router) { 
     this.chartOptions = {
       series: [1, 1, 1],
       chart: {
@@ -55,11 +56,12 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.store.get()
+    this.username = this.store.get();
   }
 
   logout() {
-    this.authService.signout()
+    this.authService.signout();
+    this.router.navigate(['/auth/signin']);
   }
 
 }

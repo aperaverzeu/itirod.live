@@ -36,18 +36,18 @@ h1 {
     cursor: pointer;
 }
 
-#card1 {
+#yellow {
     background: linear-gradient(45deg, #ffb703 60%, #ffd260 40%);
 }
 
-#card2 {
+#red {
     background: linear-gradient(45deg, #fb8500 60%, #ffba6b 40%);
 }
 
-#card3 {
+#blue {
     background: linear-gradient(45deg, #219ebc 60%, #75cde3 40%);
 }
 
-#card4 {
+#dark {
     background: linear-gradient(45deg, #1d7fac 60%, #8ecae6 40%);
 }

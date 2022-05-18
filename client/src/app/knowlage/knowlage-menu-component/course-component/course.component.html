@@ -1,9 +1,9 @@
 <main>
-    <h1>{{course.title}}</h1>
+    <h1>{{title}}</h1>
     <div class="cards">
         <div class="card" 
-             id={{this.cssClass}} 
-             *ngFor="let post of course.posts; let i=index;"
+             id={{post.courseColor}} 
+             *ngFor="let post of posts; let i=index;"
              (click)="selectPost(post)">
             {{post.title}}
         </div>

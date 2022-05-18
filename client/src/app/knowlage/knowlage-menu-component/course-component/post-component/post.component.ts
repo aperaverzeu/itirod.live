@@ -11,17 +11,15 @@ import { PostService } from 'src/app/shared/post.service';
 export class PostComponent implements OnInit {
 
   post: Post = <Post>{}
-  cssClass: string = ''
+  title: string = ''
 
   constructor(private service: PostService, private router: Router) { 
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation?.extras.state as {
-      post: Post,
-      cssClass: string
-    };
-    this.post = state.post;
-    this.cssClass = state.cssClass;
-    console.log(state)
+    const route = this.router.url.split('/');
+    this.title = route[route.length - 1];
+    this.service.getPostByTitle(this.title)
+      .subscribe(data => {
+        this.post = data;
+      })
   }
 
   ngOnInit() {

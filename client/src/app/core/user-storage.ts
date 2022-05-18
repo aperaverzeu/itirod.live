@@ -1,25 +1,20 @@
 import {Injectable} from '@angular/core';
 import { User } from './user.model';
 
-const USER_KEY = 'user';
+const USER_KEY = 'username';
 
 @Injectable()
-export class UserStorage {
+export class UsernameStorage {
 
   constructor() {
   }
 
-  set(user: User) {
-    const userString = JSON.stringify(user)
-    window.localStorage[USER_KEY] = userString;
+  set(username: string) {
+    window.localStorage[USER_KEY] = username;
   }
 
   get() {
-    const userString =  window.localStorage[USER_KEY];
-    if (userString) 
-      return JSON.parse(userString)
-    else 
-      return false
+    return window.localStorage[USER_KEY];
   }
 
   destroy() {

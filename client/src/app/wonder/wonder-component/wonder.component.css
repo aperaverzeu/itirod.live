@@ -19,7 +19,6 @@ h1 {
 .card {
     width: 65vw;
     height: 60vh;
-    background-color: #ffb703;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -28,6 +27,26 @@ h1 {
     align-items: center;
     font-size: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.30) 0px 5px 20px;
+}
+
+#white {
+    background-color: white;
+}
+
+#yellow {
+    background-color: #ffb703;
+}
+
+#red {
+    background-color: #fb8500;
+}
+
+#blue {
+    background-color: #8ecae6;
+}
+
+#dark {
+    background-color: #219ebc;
 }
 
 h2 {

@@ -12,28 +12,17 @@ import { PostService } from 'src/app/shared/post.service';
 export class KnowlageMenuComponent implements OnInit {
 
   courses: Course[] = []
-  classes: string[] = ['card1', 'card2', 'card3', 'card4']
 
-  constructor(private post: PostService, private router: Router) { 
-    this.post.getCourses()
+  constructor(private service: PostService, private router: Router) { 
+    this.service.getCourses()
       .subscribe(data => {
         this.courses = data;
       })
     
   }
 
-  getCssClass(index: number): string {
-    return this.classes[index % this.classes.length]
-  }
-
-  selectCourse(course: Course, index: number) {
-    const navigationExtras: NavigationExtras = {
-      state: {
-        course: course,
-        cssClass: this.getCssClass(index)
-      }
-    };
-    this.router.navigate([`knowlage/${course.title}`], navigationExtras);
+  selectCourse(course: Course) {
+    this.router.navigate([`knowlage/${course.title}`]);
   }
 
   ngOnInit() {

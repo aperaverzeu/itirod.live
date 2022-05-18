@@ -6,9 +6,9 @@ import { PostComponent } from './knowlage-menu-component/course-component/post-c
 import { KnowlageMenuComponent } from './knowlage-menu-component/knowlage-menu.component';
 
 const routes: Routes = [
-  { path: '', component: KnowlageMenuComponent },
-  { path: ':course', component: CourseComponent },
-  { path: ':course/:post', component: PostComponent }
+  { path: '', component: KnowlageMenuComponent, canActivate: [AuthGuard] },
+  { path: ':course', component: CourseComponent, canActivate: [AuthGuard] },
+  { path: ':course/:post', component: PostComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

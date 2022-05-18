@@ -17,8 +17,6 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    console.log('route::' + route.url);
-    console.log('state::' + state.url);
 
     // @ts-ignore
     this.authService.isAuthenticated().subscribe(auth => {

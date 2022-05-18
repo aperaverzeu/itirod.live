@@ -22,7 +22,7 @@ export class SigninComponent {
 
   login() {
     if (this.form.valid) {
-        this.auth.attempAuth({username: this.form.value.username, password: this.form.value.password})
+        this.auth.login({username: this.form.value.username, password: this.form.value.password})
         .subscribe(
           (data) => {
             this.router.navigate(['']);

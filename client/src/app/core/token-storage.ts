@@ -8,7 +8,7 @@ export class TokenStorage {
   constructor() {
   }
 
-  save(token: string) {
+  set(token: string) {
     window.localStorage[TOKEN_KEY] = token;
   }
 

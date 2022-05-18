@@ -5,10 +5,8 @@ import {AuthGuard} from './auth-guard';
 import {AuthService} from './auth.service';
 import {TokenStorage} from './token-storage';
 import {RouterModule} from '@angular/router';
-import {AuthInterceptor} from './auth-inteceptor';
 import {LoadGuard} from './load-guard';
-import {TokenInterceptor} from './token-inteceptor';
-import { UserStorage } from './user-storage';
+import { UsernameStorage } from './user-storage';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, RouterModule],
@@ -17,17 +15,7 @@ import { UserStorage } from './user-storage';
     LoadGuard,
     AuthService,
     TokenStorage,
-    UserStorage,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true,
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true,
-    },
+    UsernameStorage
   ],
   declarations: [],
 })
