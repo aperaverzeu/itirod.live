@@ -24,7 +24,7 @@ public class PostController {
         return postService.all();
     }
 
-    @GetMapping("/title/{title}")
+    @GetMapping("/course/{title}")
     public Flux<Post> allByTitle(@PathVariable String title) {
         return postService.allByTitle(title);
     }
@@ -38,6 +38,11 @@ public class PostController {
     @GetMapping("/{id}")
     public Mono<Post> get(@PathVariable("id") String id) {
         return postService.get(id);
+    }
+
+    @GetMapping("/post/{title}")
+    public Mono<Post> getPostByTitle(@PathVariable("title") String title) {
+        return postService.getPostByTitle(title);
     }
 
     @PutMapping("/{id}")

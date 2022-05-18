@@ -24,6 +24,10 @@ public record PostService(PostRepository postRepository) {
         return this.postRepository.findById(id);
     }
 
+    public Mono<Post> getPostByTitle(String title) {
+        return this.postRepository.getPostByTitle(title);
+    }
+
     public Mono<Post> update(String id, Post post) {
         return this.postRepository.findById(id)
                 .map(p -> {
