@@ -1,7 +1,6 @@
 package lt.skarb.backend.controller;
 
 import lombok.RequiredArgsConstructor;
-import lt.skarb.backend.model.dto.CourseNameDTO;
 import lt.skarb.backend.model.dto.PostDTO;
 import lt.skarb.backend.model.entity.Post;
 import lt.skarb.backend.model.mapper.PostMapper;
@@ -25,9 +24,9 @@ public class PostController {
         return postService.all();
     }
 
-    @GetMapping("/title")
-    public Flux<Post> allByTitle(@RequestBody CourseNameDTO course) {
-        return postService.allByTitle(course.courseName());
+    @GetMapping("/title/{title}")
+    public Flux<Post> allByTitle(@PathVariable String title) {
+        return postService.allByTitle(title);
     }
 
     @PostMapping("")
