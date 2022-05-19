@@ -1,9 +1,12 @@
+body {
+    width: 100vw;
+}
 .home {
-    height: 90vh;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5vh;
+    margin-top: 3vh;
 }
 #hello {
     font-size: 4rem;
@@ -11,16 +14,14 @@
 .posts {
     display: flex;
     flex-direction: column;
-    min-width: 100vw;
+    width: 100vw;
     justify-content: center;
 }
 .post {
     display: flex;
     align-items: center;
-    justify-content:space-between;
-    margin-left: 20vw;
-    margin-right: 20vw;
-    margin-top: 10vh;
+    justify-content:space-evenly;
+    margin-top: 5rem;
 }
 .post h4 {
     font-size: 1.7rem;
@@ -30,7 +31,6 @@
     text-align: left;
 }
 footer {
-    min-height: 35vh;
     background: linear-gradient(135deg, #fb8500 60%, #ffb703 40%);
 }
 a {
@@ -42,4 +42,41 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+}
+
+@media screen 
+  and (max-device-width: 768px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    .post {
+        flex-direction: column;
+        margin-top: initial;
+    }
+    .post p {
+        max-width: initial;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
+@media screen 
+    and (min-device-width: 768px) 
+    and (max-device-width: 1024px) 
+    and (-webkit-min-device-pixel-ratio: 1) { 
+      body{
+          min-height: auto;
+      }
+      .footer-nav {
+          height: 15vh;
+      }
+      .home {
+        min-height: 65vh;
+      }
+      .post {
+        justify-content:space-between;
+        margin-left: 4rem;
+        margin-right: 4rem;
+      }
+      .post p {
+          max-width: 50vw;
+      }
 }

@@ -1,8 +1,28 @@
 <header class="header">
-    <h1 class="logo"><a routerLink="/home"><fa-icon [icon]="faHouse"></fa-icon></a></h1>
-    <ul class="main-nav">
-        <li><a routerLink="/knowlage">know</a></li>
-        <li><a routerLink="/wonder">wonder</a></li>
-        <li><a routerLink="/user"><fa-icon [icon]="faUser"></fa-icon></a></li>
-    </ul>
+  <h1 class="logo"><a routerLink="/home"><fa-icon [icon]="faHouse"></fa-icon></a></h1>
+  <ul class="main-nav">
+      <li><a routerLink="/knowlage">know</a></li>
+      <li><a routerLink="/wonder">wonder</a></li>
+      <li><a routerLink="/user"><fa-icon [icon]="faUser"></fa-icon></a></li>
+  </ul>
 </header>
+
+<section>
+  <article>
+    <div class="menu">
+      <input id="menu--toggle" type="checkbox" [(ngModel)]="burgerOpen"/>
+      <label class="menu--toggle__trigger" for="menu--toggle"></label>
+      <label class="menu--toggle__burger" for="menu--toggle"></label>
+      <ul class="menu__body">
+        <li class="menu__body-element"><a class="menu__body-link" (click)="navClick('/home')">Home</a></li>
+        <li class="menu__body-element"><a class="menu__body-link" (click)="navClick('/user')">Profile</a></li>
+        <li class="menu__body-element"><a class="menu__body-link" (click)="navClick('/knowlage')">Knowlage</a></li>
+        <li class="menu__body-element"><a class="menu__body-link" (click)="navClick('/wonder')">Wonder</a></li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+        
+    
+

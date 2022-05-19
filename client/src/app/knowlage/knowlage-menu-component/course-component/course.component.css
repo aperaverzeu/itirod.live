@@ -51,3 +51,19 @@ h1 {
 #dark {
     background: linear-gradient(45deg, #1d7faca5 60%, #8ecae6a5 40%);
 }
+
+@media screen 
+  and (max-device-width: 900px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    .card {
+        width: 70vw;
+    }
+}
+
+@media screen 
+    and (max-device-width: 1100px) 
+    and (-webkit-min-device-pixel-ratio: 1) { 
+        h1 {
+            text-align: center;
+        }
+    }

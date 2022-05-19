@@ -70,3 +70,11 @@ h1 {
 #dark > h1 {
     border: 3px solid #1d7fac60;
 }
+
+@media screen 
+  and (max-device-width: 900px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    .card {
+        width: 70vw;
+    }
+}

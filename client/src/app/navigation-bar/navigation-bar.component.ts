@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faUser, faHouse } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,10 +11,16 @@ export class NavigationBarComponent implements OnInit {
 
   faUser = faUser
   faHouse = faHouse
+  burgerOpen: boolean = false
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navClick(link: string) {
+    this.router.navigate([link])
+    this.burgerOpen = false;
   }
 
 }

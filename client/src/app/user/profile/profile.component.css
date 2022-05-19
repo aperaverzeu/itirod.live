@@ -3,10 +3,9 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 1rem;
+  margin-top: 3vh;
   margin-left: 10vw;
   margin-right: 10vw;
-  margin-top: 5vh;
 }
 
 #chart h1 {
@@ -27,14 +26,72 @@ img {
 }
 
 button {
-  width: 8vw;
-  height: 5vh;
   margin-top: 2rem;
   border: 3px black solid;
   border-radius: 5px;
   background-color: white;
-  font-size: 1rem;
-  font-weight: 3px;
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
   color: black;
   cursor: pointer;
 }
+
+@media screen 
+  and (max-device-width: 768px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    
+}
+
+@media screen 
+    and (max-device-width: 1024px) 
+    and (-webkit-min-device-pixel-ratio: 1) { 
+      main {
+        max-height: initial;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        margin-top: initial;
+      }
+      img {
+        height: 15vh;
+        width: auto;
+        margin-top: 2rem;
+      }
+      #chart h1 {
+        margin-bottom: 1vh;
+      }
+      button {
+        margin-top: initial;
+        margin-bottom: 2rem;
+      }
+      #chart {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chart-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+}
+
+@media screen 
+  and (max-device-width: 670px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    apx-chart {
+      transform: scale(0.8);
+    }
+  }
+
+  @media screen 
+  and (max-device-width: 480px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    apx-chart {
+      margin-top: 6rem;
+      transform: scale(2.1);
+    }
+  }

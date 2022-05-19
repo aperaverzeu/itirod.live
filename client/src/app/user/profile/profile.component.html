@@ -1,13 +1,15 @@
 <main>
-  <div id="chart">
+  <div class="chart-block">
     <h1>Knowlage score</h1>
-    <apx-chart
-      [series]="chartOptions.series"
-      [chart]="chartOptions.chart"
-      [labels]="chartOptions.labels"
-      [responsive]="chartOptions.responsive"
-      [colors]="chartOptions.colors"
-    ></apx-chart>
+    <div id="chart">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [labels]="chartOptions.labels"
+        [responsive]="chartOptions.responsive"
+        [colors]="chartOptions.colors"
+      ></apx-chart>
+    </div>
   </div>
   <div class="person">
     <div id="avatar">
